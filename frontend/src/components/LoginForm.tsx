@@ -35,7 +35,7 @@ export default function LoginForm({ onLoginSuccess, onSwitchToRegister }: LoginF
   const onSubmit = async (data: LoginFormData) => {
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/login', data);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/login`, data);
       
       localStorage.setItem('token', response.data.token);
       localStorage.setItem('userData', JSON.stringify(response.data.user));

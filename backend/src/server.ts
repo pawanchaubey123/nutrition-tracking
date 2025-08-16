@@ -13,7 +13,7 @@ const PORT = parseInt(process.env.PORT || '8000', 10);
 // CORS configuration for production
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://your-netlify-app.netlify.app', // Update this with your actual Netlify URL
+  'https://nutriitracker.netlify.app', // Update this with your actual Netlify URL
   process.env.FRONTEND_URL
 ].filter((origin): origin is string => Boolean(origin));
 

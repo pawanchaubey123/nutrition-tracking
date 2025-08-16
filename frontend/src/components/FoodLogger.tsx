@@ -77,7 +77,7 @@ export default function FoodLogger({ onClose, onFoodAdded }: FoodLoggerProps) {
         requestData = { foodDescription };
       }
 
-      const response = await axios.post('http://localhost:8000/api/food/nutrition-lookup', requestData, {
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/food/nutrition-lookup`, requestData, {
         headers: { Authorization: `Bearer ${token}` }
       });
 
@@ -147,7 +147,7 @@ export default function FoodLogger({ onClose, onFoodAdded }: FoodLoggerProps) {
         };
       }
 
-      await axios.post('http://localhost:8000/api/food/log', logData, {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/food/log`, logData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       

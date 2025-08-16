@@ -64,7 +64,7 @@ export default function OnboardingForm({ onComplete, onSwitchToLogin }: Onboardi
   const onSubmit = async (data: OnboardingFormData) => {
     setIsLoading(true);
     try {
-      const response = await axios.post('http://localhost:8000/api/auth/register', data);
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/auth/register`, data);
       localStorage.setItem('token', response.data.token);
       onComplete(response.data.user);
     } catch (error: any) {

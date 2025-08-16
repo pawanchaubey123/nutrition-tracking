@@ -69,7 +69,7 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
     setIsLoading(true);
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get(`http://localhost:8000/api/food/entries/${selectedDate}`, {
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/api/food/entries/${selectedDate}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setDailyTotals(response.data.totals);
@@ -88,7 +88,7 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
 
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`http://localhost:8000/api/food/entries/${entryId}`, {
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/api/food/entries/${entryId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
