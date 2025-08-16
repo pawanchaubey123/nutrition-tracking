@@ -130,7 +130,7 @@ export default function OnboardingForm({ onComplete, onSwitchToLogin }: Onboardi
         return (
           <div className="space-y-4">
             <h2 className="text-2xl font-bold mb-6 text-white">Basic Information</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1 text-white">Weight (kg)</label>
                 <input
@@ -152,7 +152,7 @@ export default function OnboardingForm({ onComplete, onSwitchToLogin }: Onboardi
                 {errors.height && <p className="text-red-500 text-sm mt-1">{errors.height.message}</p>}
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1 text-white">Age</label>
                 <input
@@ -199,7 +199,7 @@ export default function OnboardingForm({ onComplete, onSwitchToLogin }: Onboardi
         return (
           <div className="space-y-4">
             <h2 className="text-2xl font-bold mb-6 text-white">Body Composition & Goals</h2>
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium mb-1 text-white">Current Body Fat %</label>
                 <input
@@ -245,8 +245,8 @@ export default function OnboardingForm({ onComplete, onSwitchToLogin }: Onboardi
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-      <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-8 border border-gray-700">
+    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4 py-8">
+      <div className="max-w-md w-full bg-gray-800 rounded-lg shadow-lg p-4 sm:p-8 border border-gray-700">
         <div className="mb-8">
           <div className="flex justify-between items-center mb-4">
             <span className="text-sm text-gray-300">Step {step} of 3</span>
@@ -263,12 +263,12 @@ export default function OnboardingForm({ onComplete, onSwitchToLogin }: Onboardi
         <form onSubmit={handleSubmit(onSubmit)}>
           {renderStep()}
 
-          <div className="flex justify-between mt-8">
+          <div className="flex flex-col sm:flex-row justify-between gap-4 mt-8">
             {step > 1 && (
               <button
                 type="button"
                 onClick={prevStep}
-                className="px-6 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700"
+                className="w-full sm:w-auto px-6 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors"
               >
                 Previous
               </button>
@@ -278,7 +278,7 @@ export default function OnboardingForm({ onComplete, onSwitchToLogin }: Onboardi
               <button
                 type="button"
                 onClick={nextStep}
-                className="ml-auto px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+                className="w-full sm:w-auto sm:ml-auto px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
               >
                 Next
               </button>
@@ -286,7 +286,7 @@ export default function OnboardingForm({ onComplete, onSwitchToLogin }: Onboardi
               <button
                 type="submit"
                 disabled={isLoading}
-                className="ml-auto px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 disabled:opacity-50"
+                className="w-full sm:w-auto sm:ml-auto px-6 py-3 bg-green-500 text-white rounded-lg hover:bg-green-600 disabled:opacity-50 transition-colors"
               >
                 {isLoading ? 'Creating Account...' : 'Complete Setup'}</button>
             )}

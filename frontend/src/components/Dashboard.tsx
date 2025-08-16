@@ -114,24 +114,24 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
     <div className="min-h-screen bg-gray-900">
       <header className="bg-gray-800 shadow-sm border-b border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center py-6 gap-4">
             <div>
-              <h1 className="text-3xl font-bold text-white">
+              <h1 className="text-2xl sm:text-3xl font-bold text-white">
                 Welcome back, {user.firstName}!
               </h1>
               <p className="text-gray-300">Track your daily nutrition goals</p>
             </div>
-            <div className="flex items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 w-full sm:w-auto">
               <button
                 onClick={onAddFood}
-                className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors"
+                className="flex items-center justify-center gap-2 bg-blue-500 text-white px-4 py-3 rounded-lg hover:bg-blue-600 transition-colors"
               >
                 <Plus size={20} />
                 Add Food
               </button>
               <button
                 onClick={onLogout}
-                className="flex items-center gap-2 bg-gray-600 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                className="flex items-center justify-center gap-2 bg-gray-600 text-white px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors"
               >
                 <LogOut size={20} />
                 Logout
@@ -159,8 +159,8 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
               <p className="mt-4 text-gray-300">Loading your daily progress...</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-700">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              <div className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-sm border border-gray-700">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-white">Calories</h3>
                   <Target className="text-red-500" size={24} />
@@ -186,7 +186,7 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                 </div>
               </div>
 
-              <div className="bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-700">
+              <div className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-sm border border-gray-700">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-white">Protein</h3>
                   <TrendingUp className="text-blue-500" size={24} />
@@ -212,7 +212,7 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                 </div>
               </div>
 
-              <div className="bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-700">
+              <div className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-sm border border-gray-700">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-white">Carbs</h3>
                   <TrendingUp className="text-green-500" size={24} />
@@ -238,7 +238,7 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                 </div>
               </div>
 
-              <div className="bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-700">
+              <div className="bg-gray-800 p-4 sm:p-6 rounded-lg shadow-sm border border-gray-700">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-lg font-semibold text-white">Fat</h3>
                   <TrendingUp className="text-yellow-500" size={24} />
@@ -267,9 +267,9 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
           )}
         </div>
 
-        <div className="bg-gray-800 rounded-lg shadow-sm border border-gray-700 p-6">
+        <div className="bg-gray-800 rounded-lg shadow-sm border border-gray-700 p-4 sm:p-6">
           <h2 className="text-xl font-semibold mb-4 text-white">Daily Summary</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <div>
               <h3 className="font-medium text-white mb-3">Today's Progress</h3>
               <div className="space-y-2 text-gray-300">
@@ -344,7 +344,7 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                             </button>
                           </div>
                           
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-3 text-sm">
+                          <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-4 gap-1 sm:gap-4 mt-3 text-sm">
                             <div>
                               <span className="text-gray-400">Calories:</span>
                               <span className="text-white font-medium ml-1">{entry.calories.toFixed(2)}</span>
@@ -364,7 +364,7 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                           </div>
                           
                           {(entry.fiber || entry.sugar || entry.sodium) && (
-                            <div className="grid grid-cols-3 gap-4 mt-2 text-sm">
+                            <div className="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-4 gap-1 sm:gap-4 mt-2 text-sm">
                               {entry.fiber && (
                                 <div>
                                   <span className="text-gray-400">Fiber:</span>

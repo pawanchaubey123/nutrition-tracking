@@ -163,10 +163,10 @@ export default function FoodLogger({ onClose, onFoodAdded }: FoodLoggerProps) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-gray-700">
-        <div className="flex items-center justify-between p-6 border-b border-gray-700">
-          <h2 className="text-2xl font-bold text-white">Log Food Entry</h2>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-2 sm:p-4 z-50">
+      <div className="bg-gray-800 rounded-lg shadow-xl max-w-2xl w-full max-h-[95vh] sm:max-h-[90vh] overflow-y-auto border border-gray-700">
+        <div className="flex items-center justify-between p-4 sm:p-6 border-b border-gray-700">
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Log Food Entry</h2>
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-gray-300 transition-colors"
@@ -175,10 +175,10 @@ export default function FoodLogger({ onClose, onFoodAdded }: FoodLoggerProps) {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="p-6 space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="p-4 sm:p-6 space-y-4 sm:space-y-6">
           {/* Mode Toggle */}
           <div className="mb-6">
-            <div className="flex items-center gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-4">
               <button
                 type="button"
                 onClick={() => {
@@ -238,8 +238,8 @@ export default function FoodLogger({ onClose, onFoodAdded }: FoodLoggerProps) {
             </div>
           ) : (
             /* Simple Mode - Original Fields */
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="md:col-span-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="sm:col-span-2">
                 <label className="block text-sm font-medium text-white mb-1">
                   Food Name *
                 </label>
