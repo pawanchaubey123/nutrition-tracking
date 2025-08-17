@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
     unoptimized: true
   },
   env: {
-    NEXT_PUBLIC_API_URL: 'https://nutrition-tracking-backend.onrender.com',
+    NEXT_PUBLIC_API_URL: 'https://nutrition-tracking-production-347d.up.railway.app',
   },
   eslint: {
     // Allow builds to complete even with ESLint errors during production builds

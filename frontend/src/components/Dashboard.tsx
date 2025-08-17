@@ -101,10 +101,16 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
   };
 
   const getProgressPercentage = (current: number, target: number) => {
+    return (current / target) * 100;
+  };
+
+  const getProgressBarWidth = (current: number, target: number) => {
     return Math.min((current / target) * 100, 100);
   };
 
-  const getProgressColor = (percentage: number) => {
+  const getProgressColor = (current: number, target: number) => {
+    const percentage = (current / target) * 100;
+    if (percentage > 100) return 'bg-red-500'; // Over target
     if (percentage >= 90) return 'bg-green-500';
     if (percentage >= 70) return 'bg-yellow-500';
     return 'bg-blue-500';
@@ -173,10 +179,10 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                   <div className="w-full bg-gray-700 rounded-full h-3">
                     <div
                       className={`h-3 rounded-full transition-all duration-300 ${getProgressColor(
-                        getProgressPercentage(dailyTotals.calories, user.targets.calories)
+                        dailyTotals.calories, user.targets.calories
                       )}`}
                       style={{
-                        width: `${getProgressPercentage(dailyTotals.calories, user.targets.calories)}%`
+                        width: `${getProgressBarWidth(dailyTotals.calories, user.targets.calories)}%`
                       }}
                     ></div>
                   </div>
@@ -199,10 +205,10 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                   <div className="w-full bg-gray-700 rounded-full h-3">
                     <div
                       className={`h-3 rounded-full transition-all duration-300 ${getProgressColor(
-                        getProgressPercentage(dailyTotals.protein, user.targets.protein)
+                        dailyTotals.protein, user.targets.protein
                       )}`}
                       style={{
-                        width: `${getProgressPercentage(dailyTotals.protein, user.targets.protein)}%`
+                        width: `${getProgressBarWidth(dailyTotals.protein, user.targets.protein)}%`
                       }}
                     ></div>
                   </div>
@@ -225,10 +231,10 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                   <div className="w-full bg-gray-700 rounded-full h-3">
                     <div
                       className={`h-3 rounded-full transition-all duration-300 ${getProgressColor(
-                        getProgressPercentage(dailyTotals.carbohydrates, user.targets.carbohydrates)
+                        dailyTotals.carbohydrates, user.targets.carbohydrates
                       )}`}
                       style={{
-                        width: `${getProgressPercentage(dailyTotals.carbohydrates, user.targets.carbohydrates)}%`
+                        width: `${getProgressBarWidth(dailyTotals.carbohydrates, user.targets.carbohydrates)}%`
                       }}
                     ></div>
                   </div>
@@ -251,10 +257,10 @@ export default function Dashboard({ user, onAddFood, onLogout }: DashboardProps)
                   <div className="w-full bg-gray-700 rounded-full h-3">
                     <div
                       className={`h-3 rounded-full transition-all duration-300 ${getProgressColor(
-                        getProgressPercentage(dailyTotals.fat, user.targets.fat)
+                        dailyTotals.fat, user.targets.fat
                       )}`}
                       style={{
-                        width: `${getProgressPercentage(dailyTotals.fat, user.targets.fat)}%`
+                        width: `${getProgressBarWidth(dailyTotals.fat, user.targets.fat)}%`
                       }}
                     ></div>
                   </div>
